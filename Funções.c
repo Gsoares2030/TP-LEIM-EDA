@@ -169,6 +169,12 @@ void ListagemGeoCodigo(Meio* inicio, char geocodigo[])
 }
 
 
+void troca(Meio* a, Meio* b) {
+    Meio aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
 
 /**
  * 
@@ -178,27 +184,23 @@ void ListagemGeoCodigo(Meio* inicio, char geocodigo[])
  */
 void ListarOrdemDecrescente(Meio* inicio)
 {
-    while (inicio != NULL)
-    {
-        if (inicio->autonomia<inicio->seguinte->autonomia)
+    int aux = 0;
+    Meio* atual=inicio;
+    Meio* seguinte = NULL;
+    while (aux) 
+   {
+       
+        while (atual->seguinte != seguinte)
         {
-
-
-            printf("%d %s %.2f %.2f %f %s %s\n", inicio->seguinte->codigo, inicio->seguinte->tipo,
-                inicio->seguinte->bateria, inicio->seguinte->autonomia, inicio->seguinte->custo, inicio->seguinte->geocodigo, inicio->estadoaluguer);
-
-            
-            
+            if (atual->autonomia < atual->seguinte->autonomia) {
+                troca(atual, atual->seguinte);
+                aux = 1;
+            }
+            atual = atual->seguinte;
         }
-        else
-        {
-            printf("%d %s %.2f %.2f %f %s\n", inicio->codigo, inicio->tipo,
-                inicio->bateria, inicio->autonomia, inicio->custo, inicio->geocodigo);
-            
-        }
-        inicio = inicio->seguinte;
-
-    }
+        seguinte = atual;
+   }
+    ListarMeios(atual);
 }
 
 /**

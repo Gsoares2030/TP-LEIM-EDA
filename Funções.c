@@ -168,7 +168,7 @@ void ListagemGeoCodigo(Meio* inicio, char geocodigo[])
 
 }
 
-
+/*A função troca os paramtros de ordem*/
 void troca(Meio* a, Meio* b) {
     Meio aux = *a;
     *a = *b;
@@ -179,7 +179,7 @@ void troca(Meio* a, Meio* b) {
 /**
  * 
  * \Enter Entra o endereço de memoria do inicio da lista ligada
- * \brief: A função vai comparando as autonomias entre as listas ligadas e vai mostrando por ordem de decrescente de autonomia o conteydo da lista ligada
+ * \brief: A função vai comparando as autonomias entre as listas ligadas e no fim lista o conteudo da lista ligada por ordem decrescente de autonomia
  * 
  */
 void ListarOrdemDecrescente(Meio* inicio)
@@ -189,7 +189,6 @@ void ListarOrdemDecrescente(Meio* inicio)
     Meio* seguinte = NULL;
     while (aux) 
    {
-       
         while (atual->seguinte != seguinte)
         {
             if (atual->autonomia < atual->seguinte->autonomia) {
@@ -233,6 +232,12 @@ int RegistoAluguer(Meio* inicio, int codigo)
 
 
 }
+/**
+ * 
+ * \Enter Entra o endereço inicial da lista ligada, o codigo, o tipo, a bateria,a autonomia,o custo, o geoodigo e o estado de aluguer do meio de mobilidade
+ * \brief: A funação compara os codigos existentes na lista ligada, com o que queremos procurar, quando encontrar troca os parametros na lista ligada
+ * 
+ */
 Meio* AlterarMeio(Meio* inicio, int cod, char tipo[], float bat, float aut, float custo, char geo[], char estadoaluguer[])
 {
    

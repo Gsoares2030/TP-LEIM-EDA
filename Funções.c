@@ -55,7 +55,7 @@ Meio* LerMeios()
     {
         while (!feof(fp))
         {
-            fscanf(fp, "%d;%[^;]%f;%f;%f;%[^;]%[^;]\n", &cod, tipo, &bat, &aut, &cust, geo,aluguer);
+            fscanf(fp, "%d %[;] %.2f %.2f %f %[;] %[;]\n", &cod, tipo, &bat, &aut, &cust, geo,aluguer);
             aux = InserirMeio(aux, cod, tipo, bat, aut,cust,geo,aluguer);
         }
         fclose(fp);
@@ -201,9 +201,9 @@ void ListarOrdemDecrescente(Meio* inicio)
             }
             seguinte = atual;
         }
-
+        ListarMeios(inicio);
    }
-    ListarMeios(atual);
+   
 }
 
 /**
@@ -405,7 +405,7 @@ int ExisteCliente(Cliente* inicio, char nome[])
        {
            while (!feof(fp))
            {
-               fscanf(fp, "%[^;]%[^;]%f;%f;\n", nome, morada, &nif, &saldo);
+               fscanf(fp, "%[;]%[;]%f;%f;\n", nome, morada, &nif, &saldo);
                aux = InserirCliente(aux,nome, morada, nif, saldo);
            }
            fclose(fp);
@@ -463,7 +463,7 @@ int ExisteCliente(Cliente* inicio, char nome[])
        {
            while (!feof(fp))
            {
-               fscanf(fp, "%[^;]%f;%s\n",&nomegestor,&codigogestor,&passe);
+               fscanf(fp, "%[;]%f;%s\n",&nomegestor,&codigogestor,&passe);
                aux = InserirGestor(aux,nomegestor,codigogestor,passe);
            }
            fclose(fp);

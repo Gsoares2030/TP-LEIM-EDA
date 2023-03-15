@@ -189,16 +189,19 @@ void ListarOrdemDecrescente(Meio* inicio)
     Meio* seguinte = NULL;
     while (aux) 
     {
-        aux = 0;
-        while (atual->seguinte != seguinte)
-        {
-            if (atual->autonomia < atual->seguinte->autonomia) {
-                troca(atual, atual->seguinte);
-                aux = 1;
+        while (aux) {
+            aux = 0;
+            atual = inicio;
+            while (atual->seguinte != seguinte) {
+                if (atual->autonomia < atual->seguinte->autonomia) {
+                    troca(atual, atual->seguinte);
+                    aux = 1;
+                }
+                atual = atual->seguinte;
             }
-            atual = atual->seguinte;
+            seguinte = atual;
         }
-        seguinte = atual;
+
    }
     ListarMeios(atual);
 }

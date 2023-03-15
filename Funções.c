@@ -241,30 +241,26 @@ int RegistoAluguer(Meio* inicio, int codigo)
  */
 Meio* AlterarMeio(Meio* inicio, int cod, char tipo[], float bat, float aut, float custo, char geo[], char estadoaluguer[])
 {
-   
-    while (inicio != NULL)
+    Meio* aux = inicio;
+    while (aux != NULL)
     {
-        if (inicio->codigo == cod)
+        if (aux->codigo==cod);
         {
 
-            if (inicio != NULL)
-            {
-                inicio->codigo = cod;
-                strcpy(inicio->tipo, tipo);
-                inicio->bateria = bat;
-                inicio->autonomia = aut;
-                inicio->custo = custo;
-                strcpy(inicio->geocodigo, geo);
-                strcpy(inicio->estadoaluguer, estadoaluguer);
-                return(inicio);
-            }
+                aux->codigo = cod;
+                strcpy(aux->tipo, tipo);
+                aux->bateria = bat;
+                aux->autonomia = aut;
+                aux->custo = custo;
+                strcpy(aux->geocodigo, geo);
+                strcpy(aux->estadoaluguer, estadoaluguer);
+                return(aux);
+            
         }
         
-        inicio = inicio->seguinte;
+        aux = aux->seguinte;
     }
-   
-
-
+    return aux;
 
 }
 
@@ -423,23 +419,25 @@ int ExisteCliente(Cliente* inicio, char nome[])
     */
    Cliente* AlterarCliente(Cliente* inicio, char nome[], char morada[], int nif, float saldo)
    {
-       while (inicio != NULL)
+       Cliente* aux = inicio;
+       while (aux!= NULL)
        {
-           if (!ExisteCliente(inicio->nome, nome))
+           if (!ExisteCliente(aux->nome, nome))
            {
 
-                   strcpy(inicio->nome,nome);
-                   strcpy(inicio->morada, morada);
-                   inicio->nif = nif;
-                   inicio->saldo =saldo;
+                   strcpy(aux->nome,nome);
+                   strcpy(aux->morada, morada);
+                   aux->nif = nif;
+                   aux->saldo =saldo;
                    return(inicio);
                
            }
 
-           inicio = inicio->seguinte;
+           aux = aux->seguinte;
        }
+       return aux;
    }
-   
+  
 
 
 #pragma endregion
@@ -601,7 +599,7 @@ Gestor* AlterarGestor(Gestor* inicio, char nomegestor[], float codigogestor, cha
         inicio = inicio->seguinte;
     }
 
-
+    return inicio;
 
 
  }

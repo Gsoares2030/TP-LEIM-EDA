@@ -153,7 +153,7 @@ int Gestor1()
 		case 5: mobilidade = LerMeios(); break;
 		case 6:
 			printf("Digite o codigo do meio de mobilidade no qual iremos altera os seus dados\n");
-			scanf("%s", &cod);
+			scanf("%d", &cod);
 			printf("Digite o tipo de meio de mobilidade\n");
 			scanf("%s", &tipo);
 			printf("Digite o nivel de bateria do meio de mobilidade\n");

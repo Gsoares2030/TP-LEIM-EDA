@@ -184,11 +184,12 @@ void troca(Meio* a, Meio* b) {
  */
 void ListarOrdemDecrescente(Meio* inicio)
 {
-    int aux = 0;
+    int aux = 1;
     Meio* atual=inicio;
     Meio* seguinte = NULL;
     while (aux) 
-   {
+    {
+        aux = 0;
         while (atual->seguinte != seguinte)
         {
             if (atual->autonomia < atual->seguinte->autonomia) {

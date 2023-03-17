@@ -1,2 +1,2 @@
 # TP-LEIM-EDA
-Trabalho realizado na UC de Extrutura de Dados Avançados
+Trabalho realizado na UC de Estrutura de Dados Avançados

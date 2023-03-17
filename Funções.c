@@ -187,9 +187,9 @@ void ListarOrdemDecrescente(Meio* inicio)
     int aux = 1;
     Meio* atual=inicio;
     Meio* seguinte = NULL;
+
     while (aux) 
-    {
-        while (aux) {
+        {
             aux = 0;
             atual = inicio;
             while (atual->seguinte != seguinte) {
@@ -202,7 +202,7 @@ void ListarOrdemDecrescente(Meio* inicio)
             seguinte = atual;
         }
         ListarMeios(inicio);
-   }
+   
    
 }
 
@@ -263,7 +263,7 @@ Meio* AlterarMeio(Meio* inicio, int cod, char tipo[], float bat, float aut, floa
         
         aux = aux->seguinte;
     }
-    return aux;
+    return inicio;
 
 }
 

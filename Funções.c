@@ -432,13 +432,13 @@ int ExisteCliente(Cliente* inicio, char nome[])
                    strcpy(aux->morada, morada);
                    aux->nif = nif;
                    aux->saldo =saldo;
-                   return(inicio);
+                   return(aux);
                
            }
 
            aux = aux->seguinte;
        }
-       return aux;
+       return inicio;
    }
   
 
@@ -586,20 +586,21 @@ int ExisteCliente(Cliente* inicio, char nome[])
  */
 Gestor* AlterarGestor(Gestor* inicio, char nomegestor[], float codigogestor, char palavrapasse[])
 {
-    while (inicio != NULL)
+    Gestor* aux = inicio;
+    while (aux != NULL)
     {
-        if (!ExisteGestor(inicio, nomegestor))
+        if (!ExisteGestor(aux->Nomegestor, nomegestor))
         {
 
             
-                strcpy(inicio->Nomegestor, nomegestor);
-                inicio->codigogestor = codigogestor;
-                strcpy(inicio->PalavraPasse,palavrapasse);
-                return(inicio);
+                strcpy(aux->Nomegestor, nomegestor);
+                aux->codigogestor = codigogestor;
+                strcpy(aux->PalavraPasse,palavrapasse);
+                return(aux);
             
         }
 
-        inicio = inicio->seguinte;
+        aux = aux->seguinte;
     }
 
     return inicio;
